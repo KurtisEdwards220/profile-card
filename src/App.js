@@ -26,8 +26,12 @@ function Avatar() {
 }
 function Intro() {
   return (
-    <div className="avatar">
-      <p>hello</p>
+    <div>
+      <h1>Kurtis Edwards</h1>
+      <p>
+        Front-end web developer. When not coding, I like to play videogames,
+        spend time with friends, and listen to music
+      </p>
     </div>
   );
 }
