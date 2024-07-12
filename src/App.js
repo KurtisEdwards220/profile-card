@@ -8,9 +8,6 @@ function App() {
       <Avatar />
       <div className="data">
         <Intro />
-        {/* Should contain one Skill component
-        for each web dev skill that you have,
-        customized with props */}
         <SkillList />
       </div>
     </div>
@@ -19,8 +16,8 @@ function App() {
 
 function Avatar() {
   return (
-    <div className="avatar">
-      <img className="img" src="profile.jpg" alt="avatar" />
+    <div>
+      <img className="avatar" src="profile.jpg" alt="avatar" />
     </div>
   );
 }
@@ -37,8 +34,21 @@ function Intro() {
 }
 function SkillList() {
   return (
-    <div className="avatar">
-      <p>hello</p>
+    <div className="skill-list">
+      <Skill skillName="Javascript" emoji="💪" color="purple" />
+      <Skill skillName="HTML + CSS" emoji="💪" color="blue" />
+      <Skill skillName="Web Design" emoji="💪" color="red" />
+      <Skill skillName="Git and GitHub" emoji="👍" color="yellow" />
+      <Skill skillName="React" emoji="👍" color="green" />
+    </div>
+  );
+}
+
+function Skill({ skillName, emoji, color }) {
+  return (
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skillName}</span>
+      <span>{emoji}</span>
     </div>
   );
 }
