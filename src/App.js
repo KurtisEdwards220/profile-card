@@ -1,5 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom';
+import skills from './index.js';
 import './App.css';
 
 function App() {
@@ -35,20 +36,22 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill skillName="Javascript" emoji="💪" color="purple" />
-      <Skill skillName="HTML + CSS" emoji="💪" color="blue" />
-      <Skill skillName="Web Design" emoji="💪" color="red" />
-      <Skill skillName="Git and GitHub" emoji="👍" color="yellow" />
-      <Skill skillName="React" emoji="👍" color="green" />
+      {skills.map((skill) => (
+        <Skill skill={skill.skill} color={skill.color} level={skill.level} />
+      ))}
     </div>
   );
 }
 
-function Skill({ skillName, emoji, color }) {
+function Skill({ skill, level, color }) {
   return (
     <div className="skill" style={{ backgroundColor: color }}>
-      <span>{skillName}</span>
-      <span>{emoji}</span>
+      <span>{skill}</span>
+      <span>
+        {level === 'beginner' && '👶'}
+        {level === 'intermediate' && '👍'}
+        {level === 'advanced' && '💪'}
+      </span>
     </div>
   );
 }
